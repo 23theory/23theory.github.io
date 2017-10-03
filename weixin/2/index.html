@@ -34,9 +34,7 @@
 		</div>-->
 		<div style="font-size:20px; font-weight:bold;margin-top:5px; padding:0px;">
 		请加订阅号: <strong style="color:red; font-size:25px;">4shu</strong>
-		
 		</div>
-
 <!--	<div style="font-size:12px;margin-top:-5px;margin-left:5px; padding:0px;">
 	<a href="http://gabrielecirulli.com/about.html" style="color:#576edf;">Gabriele Cirulli 发明</a>
 	</div>  -->
@@ -54,8 +52,7 @@
       <a class="keep-playing-button">Keep going</a>
       <a class="restart-button">New Game</a>
     </div>
-  		 <div style=" text-align:center;" id=link1> </div> 
- <div style=" text-align:center;" id=main1>
+  
   <div class="game-container" style="margin:0 10px 0 0;" id="screenShotContainer">
 	<div class="game-message" id="msg_box" style="">
 		<div style="font-weight:bold;margin:120px 0 10px 0;font-size:20px;">合出数字: <span style="color:red;font-size:28px;" id="result_number"></span></div>
@@ -189,6 +186,72 @@ function show_medal()
 		
 }
 
+function set_title()
+{
+	
+		
+	document.title = '有益智商游戏2048！我得了'+cur_score+'分！还行吧';
+		
+	if(number_tips<max_number && (max_number == 1024 || max_number == 2048))
+	{
+		show_medal();
+	}
+	
+	if(game_over==1 && cur_score>2000 && show_end_tips==1)
+	{
+		//高手，专家，大师，神
+		if(cur_score<4000)
+		{
+			zs_num=56;
+			fy_num=70;
+			sd_num=60;
+			
+			level_name = '高手';
+			zs_num += Math.floor((cur_score/4000)*200+8)/10;
+			fy_num += Math.floor((cur_score/4000)*200+1)/10;
+			sd_num += Math.floor((cur_score/4000)*200+5)/10;
+		}
+		else if(cur_score<6000)
+		{
+			zs_num=68;
+			fy_num=70;
+			sd_num=72;
+			
+			level_name = '专家';
+			zs_num += Math.floor((cur_score/6000)*200+2)/10;
+			fy_num += Math.floor((cur_score/6000)*200+7)/10;
+			sd_num += Math.floor((cur_score/6000)*200+6)/10;
+		}
+		else if(cur_score<10000)
+		{
+			zs_num=79;
+			fy_num=75;
+			sd_num=78;
+			
+			level_name = '大师';
+			zs_num += Math.floor((cur_score/10000)*200+4)/10;
+			fy_num += Math.floor((cur_score/10000)*200+1)/10;
+			sd_num += Math.floor((cur_score/10000)*200+5)/10;
+		}
+		else if(cur_score>10000)
+		{
+			level_name = '神';
+			zs_num = 99;
+			fy_num = 99;
+			sd_num = 99;
+		}
+		
+		
+		$('#result_div').show();
+		$('#result_content').html('<span style="font-size:36px;"><font color="#fce700">'+cur_score+'!</font></span><br/><br/>'
+		+'天呐！在中国地区<br/>'
+		+'您的智商 <font color="#fc4d35">>'+zs_num+'％</font> 的人<br/>'
+		+'反应速度 <font color="#fc4d35">>'+fy_num+'％</font> 的人<br/>'
+		+'协调能力 <font color="#fc4d35">>'+sd_num+'％</font> 的人<br/><br/>'
+		+'您属于<span style="color:#04e5f9; font-size:30px;">'+level_name+'</span>级别！');
+		
+	}
+}
         var imgUrl = '../../weixin/1/2048.png';
         var lineLink = '../../weixin/1/';
         var descContent = '我得了'+cur_score+'分！还行吧';
