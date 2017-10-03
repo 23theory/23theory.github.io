@@ -51,7 +51,7 @@ function set_title()
 		
 		
 		
-		$('#result_div').show();
+		//$('#result_div').show();
 
 		
 	}
