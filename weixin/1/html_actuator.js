@@ -15,7 +15,7 @@ function get_tail()
 	}
 }
 function getname() { 
-	if (cur_score >= 200)
+	if (cur_score >= 2000)
 	{
 		var person = prompt( "          本次成绩： "+  cur_score  + "分 \r\n         请输入你的名字(长度<8):", "");
 		if (person == null || person == "") {
@@ -51,7 +51,7 @@ function set_title()
 		
 		
 		
-		//$('#result_div').show();
+		$('#result_div').show();
 
 		
 	}
